@@ -31,7 +31,7 @@ serve -s build
 
 The talk was written using [Formidable Labs' Spectacle](https://github.com/FormidableLabs/spectacle).
 
-The main deck of slides can be found in the [./presentation.js](./src/presentation.js) file. At the
+The main deck of slides can be found in the [./src/presentation.js](./src/presentation.js) file. At the
 time of writing, there was a technical limitation in the Spectacle library that means all the slides
 have to remain inline for the Appear tag logic to work correctly!
 

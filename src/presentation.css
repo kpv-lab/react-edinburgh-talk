@@ -1,0 +1,50 @@
+.in-front, .in-front * {
+  position: relative;
+  z-index: 100 !important;
+}
+
+.top-right {
+  position: absolute;
+  right: 15vmin;
+  top: 5vmin;
+}
+
+.top-right * {
+  text-align: right;
+}
+
+.code-slide h1 {
+  color: #03A9FC !important;
+  border: none !important;
+  font-size: 2em !important;
+}
+
+.code-slide pre {
+  font-size: 0.75em;
+}
+
+.tertiary-text {
+  color: #03A9FC;
+  font-style: normal;
+}
+
+.secondary-text {
+  color: #1F2022;
+  font-style: normal;
+}
+
+.small-text {
+  font-size: 66%; 
+}
+
+iframe {
+  position: absolute;
+  left: 0;
+  top: 0; 
+  width: 100%;
+  height: 100%;
+}
+
+.token.comment {
+  color: #03A9FC !important;
+}

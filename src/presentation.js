@@ -2,30 +2,23 @@ import React, { Component } from 'react'
 import {
   Appear,
   BlockQuote,
+  Code,
   Deck,
   Heading,
+  Image,
   List,
   ListItem,
   Quote,
-  Slide,
-  Text,
   S,
-  Image
+  Slide,
+  Text
 } from 'spectacle'
-import CodeSlide from 'spectacle-code-slide'
 import createTheme from 'spectacle/lib/themes/default'
 import { patchGlslGrammar } from './patch/glsl-grammar'
 import './presentation.css'
-import { INSTANCES_VERT } from './slides/code/instances-vert'
-import { PARALLELISM } from './slides/code/parallelism'
-import { REACT_THREE_FIBER } from './slides/code/react-three-fiber'
-import { VANILLA_THREE } from './slides/code/vanilla-three'
 import { HelloThree } from './slides/hello-three/hello-three'
 import { Instances } from './slides/instances/Instances'
 import { Kpv } from './slides/kpv/kpv'
-import { INSTANCES_THREE } from './slides/code/instances-three'
-import threeWebsitePng from './slides/threejs-org.png'
-import { REACT_THREE } from './slides/code/react-three'
 
 patchGlslGrammar()
 
@@ -49,33 +42,28 @@ export default class Presentation extends Component {
     return (
       <Deck transition={['fade']} transitionDuration={500} theme={theme}>
         <Slide transition={['fade']} bgColor="primary">
-          <Heading size={1} fit lineHeight={1} textColor="secondary">
-            WebGL <em className="tertiary-text small-text">&&</em>
-          </Heading>
-          <Heading size={1} fit lineHeight={1} textColor="secondary">
-            three.js
-          </Heading>
-          <Heading size={1} fit lineHeight={1} textColor="tertiary">
-            (<em className="tertiary-text small-text">&&</em> React)
-          </Heading>
-          <Text margin="10px 0 0" textColor="secondary" size={1} bold>
-            Alec McEachran
+          <Text fit size={1} lineHeight={1} bold textColor="tertiary">
+            Web Graphics Programming
           </Text>
+          <Text size={1} lineHeight={1} bold textColor="tertiary">
+            using
+          </Text>
+          <Heading fit size={1} lineHeight={1} textColor="secondary">
+            WebGL
+          </Heading>
+          <Heading fit size={1} lineHeight={1} textColor="secondary">
+            <em className="tertiary-text small-text">&&</em> three.js
+          </Heading>
         </Slide>
         <Slide transition={['fade']} bgColor="primary">
           <Heading size={1} lineHeight={1} bold textColor="tertiary">
             Plan
           </Heading>
           <List>
-            <ListItem>A very brief introduction</ListItem>
-            <ListItem>three.js basics</ListItem>
-            <ListItem>
-              three.js <em className="tertiary-text">&&</em> React
-            </ListItem>
-            <ListItem>
-              three.js <em className="tertiary-text">&&</em> WebGL (glsl)
-            </ListItem>
-            <ListItem>Self-indulgent speculation (if time)</ListItem>
+            <ListItem>Who am I?</ListItem>
+            <ListItem>What is "Web Graphics Programming"?</ListItem>
+            <ListItem>What is three.js?</ListItem>
+            <ListItem>Why should you care?</ListItem>
           </List>
         </Slide>
         <Slide transition={['fade']} bgColor="primary">
@@ -88,12 +76,19 @@ export default class Presentation extends Component {
           <Appear>
             <List>
               <ListItem>
+                Self-taught coder <em className="tertiary-text small-text">&nbsp;1978-</em>
+              </ListItem>
+            </List>
+          </Appear>
+          <Appear>
+            <List>
+              <ListItem>
                 Maths & Philosophy Teacher{' '}
                 <em className="tertiary-text small-text">&nbsp;2004-8</em>
               </ListItem>
               <ListItem>
-                Flash|Web|Unity Developer{' '}
-                <em className="tertiary-text small-text">&nbsp;2008-2013</em>
+                Flash<em className="tertiary-text">|</em>Web<em className="tertiary-text">|</em>
+                Unity Developer <em className="tertiary-text small-text">&nbsp;2008-2013</em>
               </ListItem>
               <ListItem>
                 Snr Software Engineer @ YouTube
@@ -118,114 +113,167 @@ export default class Presentation extends Component {
         </Slide>
         <Slide transition={['fade']} bgColor="primary">
           <Heading size={1} fit lineHeight={1} textColor="secondary">
-            three.js <em className="tertiary-text">basics</em>
+            Web Graphics
+          </Heading>
+          <Heading size={1} fit lineHeight={1} textColor="tertiary">
+            Programming
           </Heading>
         </Slide>
         <Slide transition={['fade']} bgColor="primary">
-          <Image src={threeWebsitePng} />
-          <div className="in-front top-right">
-            <Text textColor="secondary">
-              <em className="tertiary-text">David Scott Lyons' Tutorial</em> on{' '}
-              <S type="underline">threejs.org</S>
-            </Text>
-          </div>
+          <Image src="timeline.png" fit />
         </Slide>
         <Slide transition={['fade']} bgColor="primary">
           <Heading size={1} lineHeight={1} bold textColor="tertiary">
-            three.js entities:
+            Adobe Flash
           </Heading>
           <Appear>
             <List>
-              <ListItem>Renderer, Camera, Scene</ListItem>
+              <ListItem>Macromedia buys FutureSplash 1996</ListItem>
+              <ListItem>Adobe buys Macromedia in 2005</ListItem>
             </List>
           </Appear>
           <Appear>
             <List>
-              <ListItem>Meshes, Geometries, Materials</ListItem>
-              <ListItem>Lights (and Shadows)</ListItem>
+              <ListItem>2D Graphics IDE with ActionScript Timeline</ListItem>
+              <ListItem>Content runs in Flash Plugin</ListItem>
+            </List>
+          </Appear>
+          <Appear>
+            <List>
+              <ListItem>2010 Apple drop Flash on iOS</ListItem>
+              <ListItem>Adobe will drop Flash Player in 2020</ListItem>
             </List>
           </Appear>
         </Slide>
         <Slide transition={['fade']} bgColor="primary">
-          <HelloThree />
+          <Heading size={1} lineHeight={1} bold textColor="tertiary">
+            SVG & Canvas
+          </Heading>
+          <Appear>
+            <List>
+              <ListItem>W3C start to develop SVG in 1999</ListItem>
+              <ListItem>Major Browsers adopt SVG by 2006</ListItem>
+            </List>
+          </Appear>
+          <Appear>
+            <List>
+              <ListItem notes="proprietary tech">Apple introduces Canvas element</ListItem>
+            </List>
+          </Appear>
         </Slide>
-        <CodeSlide
-          className="code-slide"
-          transition={['fade']}
-          bgColor="primary"
-          code={VANILLA_THREE}
-          lang="js"
-          ranges={[
-            { loc: [2, 6], title: 'Renderer' },
-            { loc: [7, 11], title: 'Camera' },
-            { loc: [12, 15], title: 'Light' },
-            { loc: [16, 19], title: 'Geometry, Material, Mesh' },
-            { loc: [20, 23], title: 'Scene' },
-            { loc: [24, 25], title: 'render()' }
-          ]}
-        />
         <Slide transition={['fade']} bgColor="primary">
-          <Heading size={1} fit lineHeight={1} textColor="tertiary">
-            three.js <em className="secondary-text small-text">&&</em>
+          <Heading size={1} lineHeight={1} bold textColor="tertiary">
+            WebGL
           </Heading>
-          <Heading size={1} fit lineHeight={1} textColor="secondary">
-            React
-          </Heading>
+          <Appear>
+            <List>
+              <ListItem>WebGL came out of Mozilla in 2006</ListItem>
+              <ListItem>
+                <em className="tertiary-text">Mozilla</em>, <em className="tertiary-text">Apple</em>
+                , <em className="tertiary-text">Google</em>,{' '}
+                <em className="tertiary-text">Opera</em> collaborate
+              </ListItem>
+              <ListItem>WebGL v.1.0 spec released in 2011</ListItem>
+            </List>
+          </Appear>
         </Slide>
-        <CodeSlide
-          className="code-slide"
-          transition={['fade']}
-          bgColor="primary"
-          code={REACT_THREE}
-          lang="jsx"
-          ranges={[
-            { loc: [6, 7], title: 'reference a canvas element' },
-            { loc: [9, 14], title: 'and attach a WebGLRenderer' }
-          ]}
-        />
-        <CodeSlide
-          className="code-slide"
-          transition={['fade']}
-          bgColor="primary"
-          code={REACT_THREE_FIBER}
-          lang="jsx"
-          ranges={[
-            { loc: [0, 1], title: 'react-three-fiber' },
-            { loc: [5, 8], title: 'useThree hook exposes boilerplate' },
-            { loc: [9, 18], title: 'Lights, Geometry, Material, Mesh' }
-          ]}
-        />
-        <Slide
-          transition={['fade']}
-          bgColor="primary"
-          textColor="secondary"
-          notes="Libraries are about trade-offs. This is a problem for three.js too, but the
-          fallback from three.js is WebGL."
-        >
+        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <BlockQuote>
             <Quote textColor="secondary" textSize="6vmin">
-              you don't have to go much beyond the simplest example before you end up having a
-              complicated mix of the declarative structure and imperative fallback code.
+              Graphics technologies have to trade-off <em className="tertiary-text">performance</em>{' '}
+              with
+              <br />
+              <em className="tertiary-text">ease-of-use</em>.
             </Quote>
           </BlockQuote>
-        </Slide>
-        <Slide transition={['fade']} bgColor="secondary">
-          <Heading size={1} lineHeight={1} fit bold textColor="primary">
-            three.js <em className="tertiary-text">&&</em>
-          </Heading>
-          <Heading size={1} lineHeight={1} fit bold textColor="primary">
-            WebGL (glsl)
-          </Heading>
         </Slide>
         <Slide transition={['fade']} bgColor="secondary" textColor="primary">
           <BlockQuote>
             <Quote textSize="6vmin">
-              WebGL is a web standard technology that lets your JavaScript reach through the DOM and
-              interact with the <em className="tertiary-text">GPU</em> to produce high performance
-              graphics.
+              <em className="tertiary-text">SVG</em> and <em className="tertiary-text">Canvas</em>{' '}
+              support limited <em className="tertiary-text">2D</em> graphics, but are reasonably{' '}
+              <em className="tertiary-text">easy</em> to use.
+            </Quote>
+            <br />
+            <Quote>
+              <em className="tertiary-text">WebGL</em> supports very powerful{' '}
+              <em className="tertiary-text">3D</em> graphics, but is{' '}
+              <em className="tertiary-text">hard</em> to use.
             </Quote>
           </BlockQuote>
         </Slide>
+
+        <Slide bgColor="primary">
+          <iframe
+            width="640"
+            height="360"
+            frameborder="0"
+            src="https://www.shadertoy.com/embed/llVXRd?gui=true&t=10&paused=true&muted=false"
+            allowfullscreen
+          />
+        </Slide>
+
+        <Slide bgColor="primary">
+          <iframe
+            title="skin"
+            src="https://www.derschmale.com/lab/doodles/skinsss/build/"
+            allowfullscreen
+          />
+          <div className="in-front top-right">
+            <Text textColor="secondary">
+              from <S type="underline">www.derschmale.com</S>
+            </Text>
+          </div>
+        </Slide>
+
+        <Slide bgColor="primary">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d778.7377249302808!2d-4.292347362556625!3d55.85274713196313!2m3!1f0!2f39.24003176711267!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x4888467904a37135%3A0x8331231a4f6c7877!2sBBC+Scotland!5e1!3m2!1sen!2suk!4v1561748817984!5m2!1sen!2suk"
+            width="600"
+            height="450"
+            frameborder="0"
+            style={{ border: 0 }}
+            allowfullscreen
+          />
+        </Slide>
+
+        <Slide>
+          <Heading size={1} lineHeight={1} bold textColor="tertiary">
+            CPUs and GPUs are different...
+          </Heading>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary">
+          <Image src="cpu-city.png" fit />
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary">
+          <Image src="gpu-city.png" fit />
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="secondary" textColor="primary">
+          <Text size={1} lineHeight={1} bold textColor="tertiary">
+            Web Graphics performance comes from the architecture of the GPU:
+          </Text>
+          <Appear>
+            <Text textColor="primary">
+              The GPU performs calculations in parallel, making it extremely fast.
+            </Text>
+          </Appear>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="secondary" textColor="primary">
+          <Text size={1} lineHeight={1} bold textColor="tertiary">
+            Web Graphics limitations comes from the architecture of the GPU, too:
+          </Text>
+          <Appear>
+            <Text textColor="primary">
+              Coding for parallel execution is complicated. You have to learn to think and code very
+              differently.
+            </Text>
+          </Appear>
+        </Slide>
+
         <Slide transition={['fade']} bgColor="primary">
           <Instances />
           <div className="in-front top-right">
@@ -243,120 +291,65 @@ export default class Presentation extends Component {
             </Appear>
           </div>
         </Slide>
-        <CodeSlide
-          className="code-slide"
-          transition={['fade']}
-          bgColor="primary"
-          code={INSTANCES_THREE}
-          lang="glsl"
-          ranges={[
-            { loc: [0, 13], title: 'make instanced geometry' },
-            { loc: [14, 18], title: 'rewrite glsl source' }
-          ]}
-        />
-        <CodeSlide
-          className="code-slide"
-          transition={['fade']}
-          bgColor="primary"
-          code={INSTANCES_VERT}
-          lang="glsl"
-          ranges={[
-            { loc: [0, 1], title: 'glsl is like a big loop' },
-            { loc: [2, 4], title: 'that runs at each position' },
-            { loc: [5, 6], title: 'and for each cube vertex' },
-            { loc: [7, 18], title: 'to calculate position and color' }
-          ]}
-        />
-        <Slide transition={['fade']} bgColor="secondary" textColor="primary">
-          <Heading size={1} lineHeight={1} bold textColor="tertiary">
-            GPU vs CPU
+
+        <Slide bgColor="tertiary">
+          <Code>{`// JavaScript\n`}</Code>
+          <Code>{`function getColor([r, g, b], scale) {\n`}</Code>
+          <Code>{`&nbsp;&nbsp;return scale > 0\n`}</Code>
+          <Code>{`&nbsp;&nbsp;&nbsp;&nbsp;? [r, g, b]\n`}</Code>
+          <Code>{`&nbsp;&nbsp;&nbsp;&nbsp;: [r, b, g]\n`}</Code>
+          <Code>{`}`}</Code>
+        </Slide>
+
+        <Slide bgColor="tertiary">
+          <Code>{`// GLSL\n`}</Code>
+          <Code>{`float gt(float x, float y) {\n`}</Code>
+          <Code>{`&nbsp;&nbsp;return max(sign(x - y), 0.0);\n`}</Code>
+          <Code>{`}\n`}</Code>
+          <Code>{`\n`}</Code>
+          <Code>{`float lt(float x, float y) {\n`}</Code>
+          <Code>{`&nbsp;&nbsp;return max(sign(y - x), 0.0);\n`}</Code>
+          <Code>{`}\n`}</Code>
+          <Code>{`\n`}</Code>
+          <Code>{`vec3 getColor(vec3 rgb, float scale) {\n`}</Code>
+          <Code>{`&nbsp;&nbsp;return gt(scale, 0.0) * iCol.rbg +\n`}</Code>
+          <Code>{`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lt(scale, 0.0) * iCol.rgb;\n`}</Code>
+          <Code>{`}\n`}</Code>
+        </Slide>
+
+        <Slide>
+          <Heading size={1} lineHeight={1} bold>
+            A quick introduction to <em className="secondary-text">three.js</em>
           </Heading>
-          <Text size={1} lineHeight={1.5} bold textColor="primary">
-            The speed of WebGL comes from the GPU.
+        </Slide>
+
+        <Slide>
+          <Text size={1} lineHeight={1} bold>
+            three.js is a library that wraps a lot of the more complicated parts of working with
+            WebGL to make it easy to get started.
           </Text>
-          <Appear>
-            <List>
-              <ListItem textColor="primary">Vertex positions are calculated in parallel</ListItem>
-              <ListItem>Pixels' colours are calculated in parallel</ListItem>
-            </List>
-          </Appear>
-          <Appear>
-            <List>
-              <ListItem>
-                <em className="tertiary-text">GLSL code is written to be run in parallel</em>
-              </ListItem>
-            </List>
-          </Appear>
         </Slide>
-        <CodeSlide
-          className="code-slide"
-          transition={['fade']}
-          bgColor="primary"
-          code={PARALLELISM}
-          lang="glsl"
-          ranges={[
-            { loc: [0, 4], title: 'in JS we use conditional logic' },
-            { loc: [5, 17], title: "in GLSL we usually don't" }
-          ]}
-        />
-        <Slide transition={['fade']} bgColor="primary">
-          <Heading size={1} lineHeight={1} fit bold textColor="tertiary">
-            If you become expert
-          </Heading>
-          <Text textColor="secondary">you can build some amazing things...</Text>
+
+        <Slide>
+          <HelloThree />
         </Slide>
-        <Slide transition={['fade']} bgColor="primary">
-          <iframe
-            title="skin"
-            src="https://www.derschmale.com/lab/doodles/skinsss/build/"
-            allowfullscreen
-          />
-          <div className="in-front top-right">
-            <Text textColor="secondary">
-              from <S type="underline">www.derschmale.com</S>
-            </Text>
-          </div>
+
+        <Slide bgColor="tertiary">
+          <Code textColor="primary">{`import {...} from 'three'`}</Code>
+          <br />
+          <Code>{`renderer = new WebGLRenderer()`}</Code>
+          <Code>{`camera = new PerspectiveCamera()`}</Code>
+          <Code>{`light = new PointLight()`}</Code>
+          <Code>{`geometry = new DodecahedronGeometry()`}</Code>
+          <Code>{`material = new MeshPhysicalMaterial()`}</Code>
+          <Code>{`box = new Mesh(geometry, material)`}</Code>
+          <Code>{`scene = new Scene()`}</Code>
+          <Code>{`scene.add(light)`}</Code>
+          <Code>{`scene.add(box)`}</Code>
+          <br />
+          <Code textColor="primary">{`renderer.render(scene, camera)`}</Code>
         </Slide>
-        <Slide transition={['fade']} bgColor="primary">
-          <Heading size={1} lineHeight={1} bold textColor="tertiary">
-            For Inspiration:
-          </Heading>
-          <List>
-            <ListItem>
-              <S type="underline">threejs.org</S> for examples built with three.js
-            </ListItem>
-          </List>
-          <List>
-            <ListItem>
-              <S type="underline">shadertoy.com</S> for pure WebGL shaders
-            </ListItem>
-          </List>
-        </Slide>
-        <Slide transition={['fade']} bgColor="primary">
-          <Heading size={1} lineHeight={1} bold textColor="tertiary">
-            Recap
-          </Heading>
-          <Appear>
-            <List>
-              <ListItem>three.js has entities for building 3D scenes</ListItem>
-            </List>
-          </Appear>
-          <Appear>
-            <List>
-              <ListItem>react-three-fiber removes some boilerplate</ListItem>
-            </List>
-          </Appear>
-          <Appear>
-            <List>
-              <ListItem>But it has limited value ... so far</ListItem>
-            </List>
-          </Appear>
-          <Appear>
-            <List>
-              <ListItem>For complex work you need to write glsl</ListItem>
-            </List>
-          </Appear>
-        </Slide>
+
         <Slide transition={['fade']} bgColor="primary">
           <Heading size={1} lineHeight={1} fit bold textColor="secondary">
             Speculation
@@ -373,15 +366,47 @@ export default class Presentation extends Component {
         >
           <BlockQuote>
             <Quote textSize="6vmin">
-              <em className="tertiary-text">Computation is moving to The Cloud.&nbsp;</em>
-              Is there a reason to believe that front-end rendering is different?
+              Eventually, <em className="tertiary-text">Compute</em> moves to{' '}
+              <em className="tertiary-text">The Cloud</em>.
             </Quote>
           </BlockQuote>
         </Slide>
+
+        <Slide transition={['fade']}>
+          <Heading fit>Two main reasons:</Heading>
+          <List>
+            <ListItem>Economies of scale</ListItem>
+            <ListItem>Protection of intellectual property</ListItem>
+          </List>
+          <Appear>
+            <div>
+              <Text fit textColor="tertiary">
+                And it's starting to happen with graphics:
+              </Text>
+              <List>
+                <ListItem>Video - YouTube & Netflix</ListItem>
+                <ListItem>Gaming - Stadia & xCloud</ListItem>
+              </List>
+            </div>
+          </Appear>
+        </Slide>
+
+        <Slide transition={['fade']} backgroundColor="tertiary">
+          <Heading fit>A Cloud Rendered Web</Heading>
+          <List>
+            <ListItem>Would use less bandwidth than watching Netflix for a few hours</ListItem>
+            <ListItem>Would make your computers and phones cheaper</ListItem>
+          </List>
+          <List>
+            <ListItem>Would further commoditize the web</ListItem>
+            <ListItem>Would cede even more control to the Internet Giants</ListItem>
+          </List>
+        </Slide>
+
         <Slide transition={['fade']} bgColor="secondary" textColor="primary">
           <BlockQuote>
             <Quote textSize="6vmin">
-              In a cloud-rendered web future,
+              In a future with a Cloud Rendered Web,
               <em className="tertiary-text">&nbsp;there would be no technical constraints&nbsp;</em>
               on integrating video, text, and interactivity.
             </Quote>
@@ -390,9 +415,9 @@ export default class Presentation extends Component {
         <Slide transition={['fade']} bgColor="secondary" textColor="primary">
           <BlockQuote>
             <Quote textSize="6vmin">
-              In a cloud-rendered web future,{' '}
+              In a future with a Cloud Rendered Web,{' '}
               <em className="tertiary-text">
-                perhaps it's worth knowing something about 3D rendering and GPU programming.
+                perhaps it's worth knowing something about GPU programming.
               </em>
             </Quote>
           </BlockQuote>

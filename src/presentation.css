@@ -48,3 +48,11 @@ iframe {
 .token.comment {
   color: #03A9FC !important;
 }
+
+code {
+  background-color: #03A9FC !important;
+  display: flex;
+  font-weight: bold;
+  font-size: 3.0rem !important;
+  width: 100%;
+}

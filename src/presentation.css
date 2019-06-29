@@ -37,7 +37,9 @@
   font-size: 66%; 
 }
 
-iframe {
+iframe,
+img,
+svg {
   position: absolute;
   left: 0;
   top: 0; 

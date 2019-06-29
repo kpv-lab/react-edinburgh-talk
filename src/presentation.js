@@ -14,13 +14,10 @@ import {
   Text
 } from 'spectacle'
 import createTheme from 'spectacle/lib/themes/default'
-import { patchGlslGrammar } from './patch/glsl-grammar'
 import './presentation.css'
 import { HelloThree } from './slides/hello-three/hello-three'
 import { Instances } from './slides/instances/Instances'
 import { Kpv } from './slides/kpv/kpv'
-
-patchGlslGrammar()
 
 require('normalize.css')
 
@@ -145,6 +142,7 @@ export default class Presentation extends Component {
             </List>
           </Appear>
         </Slide>
+
         <Slide transition={['fade']} bgColor="primary">
           <Heading size={1} lineHeight={1} bold textColor="tertiary">
             SVG & Canvas
@@ -161,6 +159,7 @@ export default class Presentation extends Component {
             </List>
           </Appear>
         </Slide>
+
         <Slide transition={['fade']} bgColor="primary">
           <Heading size={1} lineHeight={1} bold textColor="tertiary">
             WebGL
@@ -205,29 +204,18 @@ export default class Presentation extends Component {
 
         <Slide bgColor="primary">
           <iframe
+            title="shader-toy"
             width="640"
             height="360"
             frameborder="0"
-            src="https://www.shadertoy.com/embed/llVXRd?gui=true&t=10&paused=true&muted=false"
+            src="https://www.shadertoy.com/embed/llVXRd?gui=false&t=0&paused=false&muted=true"
             allowfullscreen
           />
         </Slide>
 
         <Slide bgColor="primary">
           <iframe
-            title="skin"
-            src="https://www.derschmale.com/lab/doodles/skinsss/build/"
-            allowfullscreen
-          />
-          <div className="in-front top-right">
-            <Text textColor="secondary">
-              from <S type="underline">www.derschmale.com</S>
-            </Text>
-          </div>
-        </Slide>
-
-        <Slide bgColor="primary">
-          <iframe
+            title="google-maps"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d778.7377249302808!2d-4.292347362556625!3d55.85274713196313!2m3!1f0!2f39.24003176711267!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x4888467904a37135%3A0x8331231a4f6c7877!2sBBC+Scotland!5e1!3m2!1sen!2suk!4v1561748817984!5m2!1sen!2suk"
             width="600"
             height="450"
@@ -348,6 +336,19 @@ export default class Presentation extends Component {
           <Code>{`scene.add(box)`}</Code>
           <br />
           <Code textColor="primary">{`renderer.render(scene, camera)`}</Code>
+        </Slide>
+
+        <Slide bgColor="primary">
+          <iframe
+            title="skin"
+            src="https://www.derschmale.com/lab/doodles/skinsss/build/"
+            allowfullscreen
+          />
+          <div className="in-front top-right">
+            <Text textColor="secondary">
+              from <S type="underline">www.derschmale.com</S>
+            </Text>
+          </div>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary">

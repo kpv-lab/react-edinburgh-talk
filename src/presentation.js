@@ -144,6 +144,10 @@ export default class Presentation extends Component {
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary">
+          <Image src="furbles.png" fit />
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary">
           <Heading size={1} lineHeight={1} bold textColor="tertiary">
             SVG & Canvas
           </Heading>
@@ -158,6 +162,10 @@ export default class Presentation extends Component {
               <ListItem notes="proprietary tech">Apple introduces Canvas element</ListItem>
             </List>
           </Appear>
+        </Slide>
+
+        <Slide>
+          <iframe title="d3" width="640" height="360" frameborder="0" src="https://d3js.org/" />
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary">

@@ -39,17 +39,11 @@ export default class Presentation extends Component {
     return (
       <Deck transition={['fade']} transitionDuration={500} theme={theme}>
         <Slide transition={['fade']} bgColor="primary">
-          <Text fit size={1} lineHeight={1} bold textColor="tertiary">
-            Web Graphics Programming
-          </Text>
-          <Text size={1} lineHeight={1} bold textColor="tertiary">
-            using
-          </Text>
-          <Heading fit size={1} lineHeight={1} textColor="secondary">
-            WebGL
+          <Heading fit size={1} lineHeight={1} bold textColor="tertiary">
+            Web Graphics
           </Heading>
           <Heading fit size={1} lineHeight={1} textColor="secondary">
-            <em className="tertiary-text small-text">&&</em> three.js
+            Programming
           </Heading>
         </Slide>
         <Slide transition={['fade']} bgColor="primary">

@@ -56,7 +56,7 @@ export function Kpv() {
       <div className="overlay">
         <Logo width="80%" className="logo" />
         <Text textColor="secondary" size={1} lineHeight={3} bold>
-          <S type="underline">www.kpv-lab.co.uk</S>
+          {/* <S type="underline">www.kpv-lab.co.uk</S> */}
         </Text>
       </div>
     </div>

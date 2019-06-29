@@ -116,6 +116,18 @@ export default class Presentation extends Component {
             Programming
           </Heading>
         </Slide>
+
+        <Slide bgColor="primary">
+          <iframe
+            title="shader-toy"
+            width="640"
+            height="360"
+            frameborder="0"
+            src="https://www.shadertoy.com/embed/llVXRd?gui=false&t=0&paused=false&muted=true"
+            allowfullscreen
+          />
+        </Slide>
+
         <Slide transition={['fade']} bgColor="primary">
           <Image src="timeline.png" fit />
         </Slide>
@@ -208,17 +220,6 @@ export default class Presentation extends Component {
               <em className="tertiary-text">hard</em> to use.
             </Quote>
           </BlockQuote>
-        </Slide>
-
-        <Slide bgColor="primary">
-          <iframe
-            title="shader-toy"
-            width="640"
-            height="360"
-            frameborder="0"
-            src="https://www.shadertoy.com/embed/llVXRd?gui=false&t=0&paused=false&muted=true"
-            allowfullscreen
-          />
         </Slide>
 
         <Slide bgColor="primary">

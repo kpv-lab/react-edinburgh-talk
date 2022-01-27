@@ -11,7 +11,7 @@
     "serve": "^11.0.2",
     "spectacle-code-slide": "^0.5.2",
     "spectacle-scripts": "2.3.0",
-    "three": "^0.103.0"
+    "three": "^0.137.0"
   },
   "scripts": {
     "start": "react-scripts start",
